@@ -2,39 +2,39 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>Task Manager</title>
+  <title>مدیریت وظایف</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <button id="toggle-theme" class="theme-toggle">🌙 حالت شب</button>
 
   <div class="container">
-    <h1>Task Manager</h1>
+    <h1>مدیریت وظایف</h1>
     <p id="datetime" class="datetime"></p>
 
-    <input type="text" id="taskInput" placeholder="کار جدید را وارد کنید...">
-
-    <select id="categorySelect">
-      <option value="study">📘 درسی</option>
-      <option value="work">💼 کاری</option>
-      <option value="personal">🏠 شخصی</option>
-    </select>
-
-    <button onclick="addTask()">افزودن</button>
-
-    <ul id="taskList"></ul>
-
-    <div class="info-box">
-      <h3>راهنما:</h3>
-      <ul>
-        <li>کار را وارد و دسته‌بندی را انتخاب و روی "افزودن" کلیک کنید.</li>
-        <li>برای تیک زدن، روی کار کلیک کنید.</li>
-        <li>برای حذف، ابتدا کار را تیک بزنید.</li>
-      </ul>
+    <div class="input-group">
+      <input type="text" id="taskInput" placeholder="وظیفه جدید را وارد کنید...">
+      <select id="categorySelect">
+        <option value="study">درسی</option>
+        <option value="work">کاری</option>
+        <option value="personal">شخصی</option>
+      </select>
+      <button onclick="addTask()">افزودن</button>
     </div>
 
-    <div class="quote-box">
-      💡 «موفقیت، حاصل تلاش‌های کوچک و پیوسته است که هر روز تکرار می‌شوند.»
+    <div class="task-section">
+      <h2>📘 وظایف درسی</h2>
+      <ul id="studyTasks"></ul>
+    </div>
+
+    <div class="task-section">
+      <h2>💼 وظایف کاری</h2>
+      <ul id="workTasks"></ul>
+    </div>
+
+    <div class="task-section">
+      <h2>🏠 وظایف شخصی</h2>
+      <ul id="personalTasks"></ul>
     </div>
 
     <footer class="footer-box">
