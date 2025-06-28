@@ -22,19 +22,38 @@
       <button onclick="addTask()">افزودن</button>
     </div>
 
-    <div class="task-section">
-      <h2>📘 وظایف درسی</h2>
-      <ul id="studyTasks"></ul>
+    <div class="task-section-switch">
+      <button onclick="switchCategory('study')">📘 درسی</button>
+      <button onclick="switchCategory('work')">💼 کاری</button>
+      <button onclick="switchCategory('personal')">🏠 شخصی</button>
     </div>
 
-    <div class="task-section">
-      <h2>💼 وظایف کاری</h2>
-      <ul id="workTasks"></ul>
+    <div id="studyTasks" class="task-section">
+      <h2>📘 وظایف درسی (<span id="count-study">0</span>)</h2>
+      <ul></ul>
     </div>
 
-    <div class="task-section">
-      <h2>🏠 وظایف شخصی</h2>
-      <ul id="personalTasks"></ul>
+    <div id="workTasks" class="task-section hidden">
+      <h2>💼 وظایف کاری (<span id="count-work">0</span>)</h2>
+      <ul></ul>
+    </div>
+
+    <div id="personalTasks" class="task-section hidden">
+      <h2>🏠 وظایف شخصی (<span id="count-personal">0</span>)</h2>
+      <ul></ul>
+    </div>
+
+    <div class="info-box">
+      <h3>راهنما:</h3>
+      <ul>
+        <li>کار را وارد و دسته‌بندی را انتخاب و روی "افزودن" کلیک کنید.</li>
+        <li>برای تیک زدن، روی کار کلیک کنید.</li>
+        <li>برای حذف، ابتدا کار را تیک بزنید.</li>
+      </ul>
+    </div>
+
+    <div class="quote-box">
+      💡 «موفقیت، حاصل تلاش‌های کوچک و پیوسته است که هر روز تکرار می‌شوند.»
     </div>
 
     <footer class="footer-box">
@@ -50,6 +69,21 @@
     }
     setInterval(updateDateTime, 1000);
     updateDateTime();
+
+    function switchCategory(category) {
+      const sections = document.querySelectorAll('.task-section');
+      sections.forEach(section => section.classList.add('hidden'));
+      document.getElementById(category + 'Tasks').classList.remove('hidden');
+      document.getElementById("categorySelect").value = category;
+    }
+
+    function updateTaskCounts() {
+      const categories = ['study', 'work', 'personal'];
+      categories.forEach(cat => {
+        const count = document.querySelector(`#${cat}Tasks ul`).children.length;
+        document.getElementById(`count-${cat}`).textContent = count;
+      });
+    }
   </script>
 
   <script src="script.js"></script>
