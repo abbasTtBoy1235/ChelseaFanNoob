@@ -58,12 +58,10 @@ function saveTasks() {
       text: li.firstChild.textContent.trim(),
       done: li.classList.contains("completed")
     });
-  });
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}
+  
 
 // بارگذاری از localStorage
 function loadTasks() {
-  let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+  let tasks = [];
   tasks.forEach(task => createTaskElement(task.text, task.done));
 }
