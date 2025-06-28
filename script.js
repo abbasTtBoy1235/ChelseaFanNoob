@@ -1,9 +1,12 @@
 function addTask() {
   const input = document.getElementById("taskInput");
   const text = input.value.trim();
-  const category = document.getElementById("categorySelect").value;
-
   if (text === "") return;
+
+  let category = "study";
+  if (!document.getElementById("studyTasks").classList.contains("hidden")) category = "study";
+  else if (!document.getElementById("workTasks").classList.contains("hidden")) category = "work";
+  else if (!document.getElementById("personalTasks").classList.contains("hidden")) category = "personal";
 
   createTaskElement(text, category, false);
   input.value = "";
@@ -31,9 +34,7 @@ function createTaskElement(text, category, done) {
 
   li.appendChild(btn);
   updateRemoveButton(li);
-
-  const ul = document.querySelector(`#${category}Tasks ul`);
-  ul.appendChild(li);
+  document.querySelector(`#${category}Tasks ul`).appendChild(li);
 }
 
 function updateRemoveButton(li) {
@@ -46,11 +47,3 @@ document.getElementById("toggle-theme").addEventListener("click", function () {
   document.body.classList.toggle("dark");
   this.textContent = document.body.classList.contains("dark") ? "☀️ حالت روز" : "🌙 حالت شب";
 });
-
-function updateTaskCounts() {
-  const categories = ['study', 'work', 'personal'];
-  categories.forEach(cat => {
-    const count = document.querySelector(`#${cat}Tasks ul`).children.length;
-    document.getElementById(`count-${cat}`).textContent = count;
-  });
-}
