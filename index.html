@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>لیست کارها</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>مدیریت کارها</h1>
+    <p id="datetime" style="color: #555; margin-top: -10px; margin-bottom: 20px;"></p>
+
+    <input type="text" id="taskInput" placeholder="کار جدید را وارد کنید...">
+    <button onclick="addTask()">افزودن</button>
+    <ul id="taskList"></ul>
+
+    <div class="info-box" style="margin-top: 30px; text-align: right;">
+      <h3 style="color: #00796b;">راهنما:</h3>
+      <ul style="font-size: 14px; color: #333; padding-right: 20px; line-height: 1.8;">
+        <li>برای افزودن کار، متن موردنظر را بنویسید و روی دکمه "افزودن" کلیک کنید.</li>
+        <li>برای علامت زدن کار به عنوان انجام‌شده، روی آن کلیک کنید.</li>
+        <li>برای حذف کار، آن را تیک بزنید تا دکمه "حذف" ظاهر شود.</li>
+      </ul>
+    </div>
+
+    <div class="quote-box" style="margin-top: 30px; font-size: 14px; font-style: italic; color: #666;">
+      💡 «موفقیت، حاصل تلاش‌های کوچک و پیوسته است که هر روز تکرار می‌شوند.»
+    </div>
+  </div>
+
+  <footer style="margin-top: 50px; text-align: center; color: #555;">
+    طراحی شده توسط <strong>عباس فخرایی</strong> | درس <strong>پروژه نرم‌افزار</strong>
+  </footer>
+
+  <script>
+    localStorage.setItem("tasks", JSON.stringify([
+      {text: "پروژه دانشگاه", done: false},
+      {text: "تحویل تمرین", done: true}
+    ]));
+
+    function updateDateTime() {
+      const now = new Date();
+      const dateTimeStr = now.toLocaleString("fa-IR", {hour12: false});
+      document.getElementById("datetime").textContent = "تاریخ و ساعت: " + dateTimeStr;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
