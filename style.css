@@ -123,6 +123,33 @@ li.completed {
   background-color: #222;
 }
 
+.info-box {
+  text-align: right;
+  margin-top: 30px;
+}
+.info-box h3 {
+  color: #00796b;
+  font-size: 15px;
+}
+.info-box ul {
+  font-size: 13px;
+  color: #333;
+  padding-right: 0;
+  line-height: 1.8;
+  list-style-position: inside;
+  direction: rtl;
+}
+.quote-box {
+  margin-top: 30px;
+  font-size: 13px;
+  font-style: italic;
+  color: #666;
+}
+
+.hidden {
+  display: none;
+}
+
 /* حالت شب */
 body.dark {
   background: linear-gradient(135deg, #263238, #37474f);
