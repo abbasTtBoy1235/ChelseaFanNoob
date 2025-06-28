@@ -4,10 +4,11 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
+  direction: rtl;
 }
 
 .container {
-  max-width: 450px;
+  max-width: 600px;
   margin: 50px auto;
   background: white;
   padding: 25px;
@@ -15,13 +16,11 @@ body {
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
-/* عنوان */
 h1 {
   margin-bottom: 10px;
   color: #00796b;
 }
 
-/* فیلد ورودی و دکمه */
 input[type="text"] {
   width: 65%;
   padding: 10px;
@@ -42,7 +41,6 @@ button:hover {
   background-color: #004d40;
 }
 
-/* لیست کارها */
 ul {
   list-style-type: none;
   padding: 0;
@@ -63,7 +61,6 @@ li.completed {
   color: gray;
 }
 
-/* دکمه حذف */
 .remove-btn {
   position: absolute;
   left: 10px;
@@ -81,7 +78,6 @@ li.completed {
   background-color: #b71c1c;
 }
 
-/* فوتر داخل کادر (شبیه کشو) */
 .footer-box {
   margin-top: 40px;
   padding: 12px 20px;
@@ -98,13 +94,6 @@ li.completed {
   color: #2e7d32;
 }
 
-/* راهنما و نقل قول */
-.info-box ul {
-  direction: rtl;
-  text-align: right;
-  list-style-position: inside;
-  padding-right: 0;
-}
 .info-box {
   text-align: right;
   margin-top: 30px;
@@ -116,9 +105,10 @@ li.completed {
 .info-box ul {
   font-size: 13px;
   color: #333;
-  padding-right: 20px;
+  padding-right: 0;
   line-height: 1.8;
-  list-style: disc;
+  list-style-position: inside;
+  direction: rtl;
 }
 .quote-box {
   margin-top: 30px;
@@ -127,7 +117,6 @@ li.completed {
   color: #666;
 }
 
-/* واکنش‌گرا */
 @media (max-width: 480px) {
   .container {
     margin: 20px;
