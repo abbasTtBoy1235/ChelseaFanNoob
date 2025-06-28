@@ -14,11 +14,6 @@
 
     <div class="input-group">
       <input type="text" id="taskInput" placeholder="وظیفه جدید را وارد کنید...">
-      <select id="categorySelect">
-        <option value="study">درسی</option>
-        <option value="work">کاری</option>
-        <option value="personal">شخصی</option>
-      </select>
       <button onclick="addTask()">افزودن</button>
     </div>
 
@@ -44,11 +39,12 @@
     </div>
 
     <div class="info-box">
-      <h3>راهنما:</h3>
+      <h3>راهنمای استفاده از مدیریت وظایف</h3>
       <ul>
-        <li>کار را وارد و دسته‌بندی را انتخاب و روی "افزودن" کلیک کنید.</li>
-        <li>برای تیک زدن، روی کار کلیک کنید.</li>
-        <li>برای حذف، ابتدا کار را تیک بزنید.</li>
+        <li>ابتدا وظیفه را وارد کرده و روی "افزودن" کلیک کنید.</li>
+        <li>برای تغییر بخش، روی دکمه‌های درسی، کاری یا شخصی کلیک کنید.</li>
+        <li>برای تیک‌زدن، روی وظیفه کلیک کنید.</li>
+        <li>برای حذف، ابتدا تیک زده و سپس روی "حذف" کلیک کنید.</li>
       </ul>
     </div>
 
@@ -74,7 +70,6 @@
       const sections = document.querySelectorAll('.task-section');
       sections.forEach(section => section.classList.add('hidden'));
       document.getElementById(category + 'Tasks').classList.remove('hidden');
-      document.getElementById("categorySelect").value = category;
     }
 
     function updateTaskCounts() {
