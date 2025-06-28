@@ -19,21 +19,18 @@ function createTaskElement(text, done) {
   li.textContent = text;
   if (done) li.classList.add("completed");
 
-  // تیک زدن یا برداشتن با کلیک
   li.onclick = function () {
     li.classList.toggle("completed");
     updateRemoveButton(li);
     saveTasks();
   };
 
-  // دکمه حذف
   let btn = document.createElement("button");
   btn.textContent = "حذف";
   btn.className = "remove-btn";
 
-  // حذف فقط وقتی روی دکمه کلیک شه (نه خود لیست)
   btn.onclick = function (e) {
-    e.stopPropagation(); // جلوگیری از تیک خوردن
+    e.stopPropagation();
     li.remove();
     saveTasks();
   };
@@ -43,14 +40,14 @@ function createTaskElement(text, done) {
   document.getElementById("taskList").appendChild(li);
 }
 
-// نمایش یا مخفی‌کردن دکمه حذف
+// نمایش یا مخفی کردن دکمه حذف
 function updateRemoveButton(li) {
   let btn = li.querySelector("button");
   if (!btn) return;
   btn.style.display = li.classList.contains("completed") ? "inline-block" : "none";
 }
 
-// ذخیره لیست به localStorage
+// ذخیره لیست به localStorage (اگه بخوای حذفش کنی اینو کلش پاک کن)
 function saveTasks() {
   let tasks = [];
   document.querySelectorAll("#taskList li").forEach(li => {
@@ -58,10 +55,11 @@ function saveTasks() {
       text: li.firstChild.textContent.trim(),
       done: li.classList.contains("completed")
     });
-  
+  });
+}
 
-// بارگذاری از localStorage
+// بارگذاری اولیه (اینجا کاری نمی‌کنه چون localStorage خالیه)
 function loadTasks() {
-  let tasks = [];
+  let tasks = []; // هیچ‌چی لود نشه
   tasks.forEach(task => createTaskElement(task.text, task.done));
 }
