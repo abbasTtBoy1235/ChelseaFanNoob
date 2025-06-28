@@ -2,7 +2,7 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>لیست کارها</title>
+  <title>مدیریت کارها</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,14 +27,12 @@
       💡 «موفقیت، حاصل تلاش‌های کوچک و پیوسته است که هر روز تکرار می‌شوند.»
     </div>
 
-    <!-- ✅ فوتر داخل container -->
     <footer class="footer-box">
       طراحی شده توسط <strong>عباس فخرایی</strong> | درس <strong>پروژه نرم‌افزار</strong>
     </footer>
   </div>
 
   <script>
-    // نمایش تاریخ و ساعت زنده
     function updateDateTime() {
       const now = new Date();
       const dateTimeStr = now.toLocaleString("fa-IR", {hour12: false});
@@ -42,12 +40,6 @@
     }
     setInterval(updateDateTime, 1000);
     updateDateTime();
-
-    // تسک‌های تستی
-    localStorage.setItem("tasks", JSON.stringify([
-      {text: "پروژه دانشگاه", done: false},
-      {text: "تحویل تمرین", done: true}
-    ]));
   </script>
 
   <script src="script.js"></script>
