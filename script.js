@@ -1,8 +1,3 @@
-// اجرای اولیه
-window.onload = function() {
-  // اینجا چیزی لود نمی‌کنیم چون localStorage استفاده نمی‌شه
-};
-
 // افزودن تسک جدید
 function addTask() {
   let input = document.getElementById("taskInput");
@@ -13,7 +8,7 @@ function addTask() {
   input.value = "";
 }
 
-// ساخت تسک در DOM
+// ساخت عنصر تسک
 function createTaskElement(text, done) {
   let li = document.createElement("li");
   li.textContent = text;
@@ -44,3 +39,14 @@ function updateRemoveButton(li) {
   if (!btn) return;
   btn.style.display = li.classList.contains("completed") ? "inline-block" : "none";
 }
+
+// تغییر تم روز/شب
+document.getElementById("toggle-theme").addEventListener("click", function () {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    this.textContent = "☀️ حالت روز";
+  } else {
+    this.textContent = "🌙 حالت شب";
+  }
+});
