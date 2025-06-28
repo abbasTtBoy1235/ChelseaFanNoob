@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>لیست کارها</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>مدیریت کارها</h1>
+    <p id="datetime" style="color: #555; margin-top: -10px; margin-bottom: 20px;"></p>
+    <input type="text" id="taskInput" placeholder="کار جدید را وارد کنید...">
+    <button onclick="addTask()">افزودن</button>
+    <ul id="taskList"></ul>
+  </div>
+
+  <footer style="margin-top: 50px; text-align: center; color: #555;">
+    طراحی شده توسط <strong>عباس فخرایی</strong> | درس <strong>پروژه نرم‌افزار</strong>
+  </footer>
+
+  <script>
+    localStorage.setItem("tasks", JSON.stringify([
+      {text: "پروژه دانشگاه", done: false},
+      {text: "تحویل تمرین", done: true}
+    ]));
+
+    // نمایش تاریخ و ساعت
+    function updateDateTime() {
+      const now = new Date();
+      const dateTimeStr = now.toLocaleString("fa-IR", {hour12: false});
+      document.getElementById("datetime").textContent = "تاریخ و ساعت: " + dateTimeStr;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
