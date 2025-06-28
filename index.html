@@ -2,27 +2,34 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>مدیریت کارها</title>
+  <title>Task Manager</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- دکمه تغییر تم -->
   <button id="toggle-theme" class="theme-toggle">🌙 حالت شب</button>
 
   <div class="container">
-    <h1>مدیریت کارها</h1>
-    <p id="datetime" style="color: #555; margin-top: -10px; margin-bottom: 20px;"></p>
+    <h1>Task Manager</h1>
+    <p id="datetime" class="datetime"></p>
 
     <input type="text" id="taskInput" placeholder="کار جدید را وارد کنید...">
+
+    <select id="categorySelect">
+      <option value="study">📘 درسی</option>
+      <option value="work">💼 کاری</option>
+      <option value="personal">🏠 شخصی</option>
+    </select>
+
     <button onclick="addTask()">افزودن</button>
+
     <ul id="taskList"></ul>
 
     <div class="info-box">
       <h3>راهنما:</h3>
       <ul>
-        <li>برای افزودن کار، متن را وارد و روی "افزودن" کلیک کن.</li>
-        <li>برای تیک‌زدن، روی کار کلیک کن.</li>
-        <li>برای حذف، تیک بزن تا دکمه "حذف" ظاهر شود.</li>
+        <li>کار را وارد و دسته‌بندی را انتخاب و روی "افزودن" کلیک کنید.</li>
+        <li>برای تیک زدن، روی کار کلیک کنید.</li>
+        <li>برای حذف، ابتدا کار را تیک بزنید.</li>
       </ul>
     </div>
 
