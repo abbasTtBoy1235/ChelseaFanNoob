@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>لیست کارها</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>مدیریت کارها</h1>
+    <input type="text" id="taskInput" placeholder="کار جدید را وارد کنید...">
+    <button onclick="addTask()">افزودن</button>
+    <ul id="taskList"></ul>
+  </div>
+  <script>
+    localStorage.setItem("tasks", JSON.stringify([
+      {text: "پروژه دانشگاه", done: false},
+      {text: "تحویل تمرین", done: true}
+    ]));
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
